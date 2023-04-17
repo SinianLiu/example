@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.com">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>movie Info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <img src="/images/logo.png" width="250px"/>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar items -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/interested_movies">Interested Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/watched_movies">Watched Movies</a>
+                </li>
+            </ul>
+            <div>
+                <a class="nav-link text-white" href="/add_movie">Add New Movie</a>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<!-- A container with a border that contains a form for editing a movie's details -->
+<div class="container my-5 p-5" style="border:1px solid black">
+    <!-- A centered heading for the form -->
+    <h4 class="text-center"> Edit Movie Here</h4>
+    <!-- A form with fields for editing a movie's details -->
+    <form class="col-md-7 offset-md-3" th:action="@{/save}" method="post" th:object="${Movie}">
+        <!-- A hidden field for the movie's ID -->
+        <input type="hidden" name="id" th:value="${Movie.id}"/>
+
+        <!-- Fields for editing the movie's attributes -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name = "name" id = "name" th:value="${Movie.name}">
+        </div>
+
+        <div class="mb-3">
+            <label for="director" class="form-label">Director</label>
+            <input type="text" class="form-control" name = "director" id = "director" th:value="${Movie.director}">
+        </div>
+
+        <div class="mb-3">
+            <label for="type" class="form-label">Type</label>
+            <input type="text" class="form-control" name = "type" id = "type" th:value="${Movie.type}">
+        </div>
+
+        <div class="mb-3">
+            <label for="type" class="form-label">Country</label>
+            <input type="text" class="form-control" name = "country" id = "country" th:value="${Movie.country}">
+        </div>
+
+        <div class="mb-3">
+            <label for="type" class="form-label">Year</label>
+            <input type="text" class="form-control" name = "year" id = "year" th:value="${Movie.year}">
+        </div>
+
+        <div class="mb-3">
+            <label for="type" class="form-label">Rating</label>
+            <input type="text" class="form-control" name = "rating" id = "rating" th:value="${Movie.rating}">
+        </div>
+        <!-- A centered submit button for the form -->
+        <center><button type="submit" class="btn btn-primary">Submit</button></center>
+    </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
+</body>
+</html>
